@@ -19,6 +19,22 @@ export default class App {
             return kilometros * 6.5;
         }
     }
+
+    puedeCircular(dia,terminacion) {
+        if(terminacion == 0 && dia == 1) {
+            return true;
+        } else if(terminacion == 1 && dia == 2) {
+            return true
+        } else if(terminacion == 2 && (dia == 3 || dia == 4)) {
+            return true;
+        } else if(dia <1 || dia > 7) {
+            return false;
+        } else if(terminacion > 2 && (dia > 0 || dia < 8) ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 let app = new App();
@@ -33,3 +49,10 @@ console.log(app.costoRenta(49));
 console.log(app.costoRenta(50));
 console.log(app.costoRenta(199));
 console.log(app.costoRenta(500));
+
+// Comprobacion puedeCircular
+console.log(app.puedeCircular(2,0));
+console.log(app.puedeCircular(2,1));
+console.log(app.puedeCircular(4,2));
+console.log(app.puedeCircular(8,0));
+console.log(app.puedeCircular(6,4));
